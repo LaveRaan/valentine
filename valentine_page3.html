@@ -101,7 +101,7 @@
 <body>
 
 <div class="card">
-    <h1 id="song">Our Special Moments ❤️</h1>
+    <h1 id="song" onclick="startMusic()">Our Special Moments ❤️</h1>
 
     <!-- Change effect here: blur / heart / curtain -->
     <div class="slider curtain" id="slider">
@@ -130,9 +130,9 @@
 </div>
 
 <script>
-    document.getElementById("song").onclick=function(){
-        document.getElementById("song3").play();
-    }
+    function startMusic(){
+    document.getElementById("song").play();
+}
 let images = document.querySelectorAll(".slider img");
 let caption = document.getElementById("caption");
 let index = 0;
@@ -162,4 +162,5 @@ function nextPage() {
 </script>
 
 </body>
+
 </html
