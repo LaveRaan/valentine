@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Valentine Page</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(to right, #ff9a9e, #fad0c4);
+            font-family: Arial, sans-serif;
+        }
+
+        .card {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            width: 320px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            position: relative;
+        }
+        .card img {
+            width: 200px;
+            margin-bottom: 20px;
+        }
+        .btns{
+           margin-left: -20% ;  
+        }
+        h1 {
+            color: #cc4b6c;
+            font-size: 22px;
+        }
+        .yes-btn, .no-btn {
+            background: #ff4d6d;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 10px;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .no-btn {
+            background: #888;
+            position: absolute;
+        }
+        .note {
+            font-size: 16px;
+            margin-top: 10px;
+            color: gray;
+        }
+    </style>
+</head>
+<body>
+
+<div class="card" id="card">
+    <img src="a49d87d7834e9efd2e96efe9e34b23a4.jpg">
+    <h1>Mukunth, will you be my valentine?</h1>
+
+    <div class="btns">
+    <button class="yes-btn" onclick="yes()">Yes</button>
+    <button class="no-btn" id="noBtn">No</button>
+    </div>
+
+    <div class="note">
+        Don't waste your time to follow the No 😌
+    </div>
+</div>
+
+<script>
+function yes() {
+     window.location.href = "valentine_page2.html";
+}
+
+const noBtn = document.getElementById("noBtn");
+const card = document.getElementById("card");
+
+const messages = [
+    "Don't touch",
+    "Please no",
+    "Don't do this",
+    "Think again",
+    "Wrong choice",
+    "Nope 😜"
+];
+
+// move only when trying to click
+noBtn.addEventListener("mouseover", moveButton);
+
+function moveButton() {
+    const cardRect = card.getBoundingClientRect();
+
+    const maxX = cardRect.width - noBtn.offsetWidth;
+    const maxY = cardRect.height - noBtn.offsetHeight;
+
+    const randomX = Math.random() * maxX;
+    const randomY = Math.random() * maxY;
+
+    noBtn.style.left = randomX + "px";
+    noBtn.style.top = randomY + "px";
+
+    const randomText = messages[Math.floor(Math.random() * messages.length)];
+    noBtn.innerText = randomText;
+}
+</script>
+
+</body>
+</html>
